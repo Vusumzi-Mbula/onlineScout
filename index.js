@@ -76,7 +76,7 @@ app.post("/form", upload.single('video'), (req, res) =>{
         let details = {
           from: "mabasomilpo@gmail.com",
           to: data.femail,
-          subject: `Digi-Scout`,
+          subject: `online Scouting agent`,
           text: `hello, ${data.fname} we have accepted your appication.`
         }
         
