@@ -1,7 +1,7 @@
 {
-  "name": "ejs-products",
+  "name": "onlinescout",
   "version": "1.0.0",
-  "description": "",
+  "description": "Is a online Scouting platform which allows soccers players to upload they'er soccer video and personally infomation so that soccer agents can scout for talent online.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,13 @@
     "express": "^4.18.2",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vusumzi-Mbula/onlineScout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vusumzi-Mbula/onlineScout/issues"
+  },
+  "homepage": "https://github.com/Vusumzi-Mbula/onlineScout#readme"
 }

@@ -49,7 +49,7 @@ app.post("/form", upload.single('video'), (req, res) =>{
   // insert into DB
     async function addData(){
         let header = {
-          userid: process.env.MY_TOKEN  // cloud connection token 
+          userid: "h99w92"  // cloud connection token 
         };
 
         let propertyName = "userinfo";
@@ -69,7 +69,7 @@ app.post("/form", upload.single('video'), (req, res) =>{
           service: "gmail",
           auth: {
             user: "mabasomilpo@gmail.com",
-            pass: process.env.MY_GMAIL_PASS
+            pass: "bspjzvpnmgsbfhaq"
             }
         });
         
@@ -117,7 +117,7 @@ app.get("/userinfo", (req, res) =>{
   // select from DB 
   async function getDataBasedOnProperty(){
         let header = {
-          userid: process.env.MY_TOKEN // cloud connection token
+          userid: "h99w92" // cloud connection token
         };
      
         let propertyName = "userinfo";
@@ -131,7 +131,7 @@ app.get("/userinfo", (req, res) =>{
          return res.render("homePage", 
            {
             title: "user Record",
-            message: "Get user information from DataBase",
+            message: "Online Scouting Platform",
             data: myJsonData
            });
      };
