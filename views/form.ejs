@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= header %> </h1>
+
+    <form action="/form" method="post" enctype="multipart/form-data">
+      
+        <fieldset>
+          <legend>Form</legend>
+          <label for="fname">Name:</label>
+          <input type="text" name="fname" /><br /><br />
+          <label for="femail">Email:</label>
+          <input type="email" name="femail" /><br /><br />
+          <label for="fphone">Phone:</label>
+          <input type="number" name="fphone" /><br /><br />
+          <label for="fage">Age:</label>
+          <input type="text" name="fage" /><br /><br />
+          <label for="fcountry">Country:</label>
+          <input type="text" name="fcountry" /><br /><br />
+          <input type="file" name="video" />
+          <input type="submit" value="submit" />
+        </fieldset>
+      </form>
+</body>
+</html>

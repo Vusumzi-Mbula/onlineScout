@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body> 
+<% myArray.forEach(element => { %>
+    <% const myObject = JSON.parse(element.data) %>
+    <p>welcome <%= myObject.fname %>, we accept your video and you are now been scouted by our online agents, please check your email for more information</p>
+<% }) %>
+   
+    <button type="button">
+        <a href="http://localhost:3001/userinfo">ok</a>
+    </button>
+</body>
+</html>
