@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Vusumzi-Mbula/onlineScout/issues"
   },
-  "homepage": "https://github.com/Vusumzi-Mbula/onlineScout#readme"
+  "homepage": "https://github.com/Vusumzi-Mbula/onlineScout#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
 }

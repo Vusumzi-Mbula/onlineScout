@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const multer  = require('multer');
 const nodemailer = require("nodemailer");
+const path = require("path");
 const app = express();  // creating an instance of express
 const PORT = 3001;
  
@@ -15,8 +16,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 // serveing static file middleware
-app.use(express.static("public"));
-
+app.use(express.static("images"));
+app.use(express.static("videos"));
+// Here we expose your dist folder
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Routes
 // get route
@@ -29,22 +32,28 @@ app.get("/form", (req, res) =>{
     });
 });
 
-//the storage engine tells multer were and how to save our file.
+//the storage engine tells multer were and how to save our video files.
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public");
+    if(file.fieldname === 'image'){
+      cb(null, "./images");
+    } else if(file.fieldname === 'video'){     
+      cb(null, "./videos");
+    }
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '--' + file.originalname);
+    cb(null, file.originalname +'-'+Date.now() + path.extname(file.originalname));
   }
 });
 
+
 //the storage property takes a storage engine.
 const upload = multer({storage: fileStorageEngine});
+const uploadMulitpleFields = upload.fields([{name: "image", maxCount: 1},
+{name: "video", maxCount: 1}])
 
 // post route
-app.post("/form", upload.single('video'), (req, res) =>{
-
+app.post("/form",  uploadMulitpleFields, (req, res) =>{
   // simpleDB cloud connection
   // insert into DB
     async function addData(){
@@ -61,8 +70,12 @@ app.post("/form", upload.single('video'), (req, res) =>{
                     fphone,
                     fage,
                     fcountry,
-                    video: req.file.filename
-                  };
+                    image: req.files.image[0].filename,
+                    video: req.files.video[0].filename
+                  }; 
+
+                  console.log(req.body);
+                  console.log(req.files);     
 
         //sending emails
         let transporter = nodemailer.createTransport({
